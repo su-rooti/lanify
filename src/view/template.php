@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fi">
-  <head>
+  <head >
+  <link href="styles/styles.css" rel="stylesheet">
     <title>lanify - <?=$this->e($title)?></title>
     <meta charset="UTF-8">    
   </head>
