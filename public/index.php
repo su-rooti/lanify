@@ -11,7 +11,7 @@ require_once '../src/init.php';
 
   // Selvitetään mitä sivua on kutsuttu ja suoritetaan sivua vastaava 
   // Luodaan uusi Plates-olio ja kytketään se sovelluksen sivupohjiin.
-  $templates = new League\Plates\Engine('../src/view'); 
+  $templates = new League\Plates\Engine(TEMPLATE_DIR);
 
   // Selvitetään mitä sivua on kutsuttu ja suoritetaan sivua vastaava
   // käsittelijä.
