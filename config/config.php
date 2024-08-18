@@ -2,7 +2,7 @@
 
   $config = array(
     "urls" => array(
-      "baseUrl" => "/~koodaaja/lanify"
+      "baseUrl" => "/~taaltolanify"
     )
   );
 
