@@ -15,22 +15,26 @@ require_once '../src/init.php';
 
   // Selvitetään mitä sivua on kutsuttu ja suoritetaan sivua vastaava
   // käsittelijä.
-  if ($request === '/' || $request === '/tapahtumat') {
-    require_once MODEL_DIR . 'tapahtuma.php';
-    $tapahtumat = haeTapahtumat();
-    echo $templates->render('tapahtumat',['tapahtumat' => $tapahtumat]);
-    } else if ($request === '/tapahtuma') {
-    require_once MODEL_DIR . 'tapahtuma.php';
-    $tapahtuma = haeTapahtuma($_GET['id']);
-    if ($tapahtuma) {
-      echo $templates->render('tapahtuma',['tapahtuma' => $tapahtuma]);
-    } else {
-      echo $templates->render('tapahtumanotfound');
-    }
-  } else if ($request === '/lisaa_tili') {
-    echo $templates->render('lisaa_tili');
-  } else {
-    echo '<h1>Pyydettyä sivua ei löytynyt :(</h1>';
-    echo $templates->render('notfound');
+  switch ($request) {
+    case '/':
+    case '/tapahtumat':
+      require_once MODEL_DIR . 'tapahtuma.php';
+      $tapahtumat = haeTapahtumat();
+      echo $templates->render('tapahtumat',['tapahtumat' => $tapahtumat]);
+      break;
+    case '/tapahtuma':
+      require_once MODEL_DIR . 'tapahtuma.php';
+      $tapahtuma = haeTapahtuma($_GET['id']);
+      if ($tapahtuma) {
+        echo $templates->render('tapahtuma',['tapahtuma' => $tapahtuma]);
+      } else {
+        echo $templates->render('tapahtumanotfound');
+      }
+      break;
+    case '/lisaa_tili':
+      echo $templates->render('lisaa_tili');
+      break;
+    default:
+      echo $templates->render('notfound');
   }
 ?> 
