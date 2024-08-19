@@ -46,5 +46,9 @@ require_once '../src/init.php';
           echo $templates->render('lisaa_tili', ['formdata' => [], 'error' => []]);
           break;
         }
+        case '/kirjaudu':
+          echo $templates->render('kirjaudu', [ 'error' => []]);
+          break;
+    
   }
 ?> 
